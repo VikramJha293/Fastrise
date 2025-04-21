@@ -1,0 +1,172 @@
+<!--
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/rectangle_drawable"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    &lt;!&ndash; Thumbnail Image &ndash;&gt;
+    <ImageView
+        android:id="@+id/ivThumbnail"
+        android:layout_width="110dp"
+        android:layout_height="115dp"
+        android:background="@drawable/rectangle_drawable"
+        android:scaleType="fitXY"
+        android:padding="10dp"
+        android:src="@drawable/pv_invisible_image" />
+
+    &lt;!&ndash; Text and Progress Layout &ndash;&gt;
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp">
+
+        &lt;!&ndash; Title &ndash;&gt;
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="For All Mankind"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:fontFamily="sans-serif-medium" />
+
+        &lt;!&ndash; Subtitle &ndash;&gt;
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S04E05 - Legacy"
+            android:textSize="14sp"
+
+            android:textColor="@android:color/black"
+            android:layout_marginTop="2dp" />
+
+
+        <TextView
+            android:id="@+id/tvEpisodeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4/8"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="2dp" />
+        <Button
+            android:id="@+id/btnEpisodeInfo"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/login_button_bk"
+            android:text="Details"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/white"
+            />
+    </LinearLayout>
+
+    &lt;!&ndash; Button &ndash;&gt;
+
+</LinearLayout>
+-->
+<!--<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:orientation="horizontal">
+
+    <FrameLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        &lt;!&ndash; Game Image &ndash;&gt;
+        <ImageView
+            android:id="@+id/gameImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/_applogo" />
+
+        &lt;!&ndash; Overlay Text and Icon &ndash;&gt;
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnEpisodeInfo"
+            android:layout_gravity="bottom"
+            android:padding="8dp">
+
+            &lt;!&ndash; Game Title (Left Side) &ndash;&gt;
+            <TextView
+                android:id="@+id/gameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Game Title"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true" />
+
+            &lt;!&ndash; Icon (Right Side) &ndash;&gt;
+            <ImageView
+                android:id="@+id/gameIcon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:tint="@android:color/white" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+
+</LinearLayout>-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Category Name -->
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Category Name"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/no_data_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="No products available"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclervirwchild"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal" />
+    </FrameLayout>
+    <!-- Child RecyclerView -->
+
+</LinearLayout>

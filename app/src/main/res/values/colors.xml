@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="main_color">#60913f</color>
+    <color name="bottom_nav_selected">#60913f</color> <!-- Green for selected -->
+    <color name="bottom_nav_unselected">#808080</color> <!-- Gray for unselected -->
+    <color name="bottom_nav_background">#FFFFFF</color> <!-- Background color -->
+
+</resources>
