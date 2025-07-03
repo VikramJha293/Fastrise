@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "com.fastrise.app"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.fastrise.app"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = 35
+        versionCode = 8
+        versionName = "1.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -59,4 +59,7 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.easyprefs)
     implementation(libs.pinview)
+    implementation (libs.glide)
+    annotationProcessor (libs.compiler)
+    implementation (libs.picasso)
 }

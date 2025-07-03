@@ -210,6 +210,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+
                     android:hint="Product Name">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -243,6 +244,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:visibility="gone"
                     android:hint="Price">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -258,6 +260,7 @@
                     android:id="@+id/inputLayoutToatlPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:hint="Total Price">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -273,6 +276,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:visibility="visible"
                     android:hint="Price Wallet">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -302,6 +306,7 @@
                     android:id="@+id/inputLayoutDidYouSell"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:hint="At what price did you sell ?">
 
                     <com.google.android.material.textfield.TextInputEditText

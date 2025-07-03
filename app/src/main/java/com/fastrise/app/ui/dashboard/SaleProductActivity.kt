@@ -162,9 +162,9 @@ class SaleProductActivity : AppCompatActivity(), EventListner {
                 if (position != 0) {  // Skipping the "Select Payment" option
                     saleType = parent.getItemAtPosition(position) as String
                     if (saleType == "Rupees") {
-                        inputLayoutPrice?.visibility = View.VISIBLE
-                        inputLayoutToatlPrice?.visibility = View.VISIBLE
-                        inputLayoutDidYouSell?.visibility = View.VISIBLE
+                        inputLayoutPrice?.visibility = View.GONE
+                        inputLayoutToatlPrice?.visibility = View.GONE
+                        inputLayoutDidYouSell?.visibility = View.GONE
                         inputLayoutWallet?.visibility = View.GONE
                         inputLayoutToatlWallet?.visibility = View.GONE
                     } else {

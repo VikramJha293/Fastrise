@@ -12,9 +12,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.signature.ObjectKey
 import com.fastrise.app.R
 import com.fastrise.app.utill.AppConstant
 import com.pixplicity.easyprefs.library.Prefs
+import com.squareup.picasso.Picasso
 import java.io.File
 import java.io.FileOutputStream
 
@@ -51,7 +55,18 @@ class ProductDetailsActivity : AppCompatActivity() {
         walletPrice.text = "Product Price: ₹${product?.Price_Per}"
         walletPoints.text = "Wallet Points: ${product?.Wallet_Point}"
         modelno.text = "Model No: ${product?.MODEL_NO}"
-        showImageFromBase64(product?.PHOTO1.toString(), productImage)
+//        showImageFromBase64(product?.PHOTO1.toString(), productImage)
+//    /*    Glide.with(this)
+//            .load(product?.PHOTO1)
+//            .diskCacheStrategy(DiskCacheStrategy.NONE)
+//            .signature(ObjectKey(System.currentTimeMillis().toString()))
+//            .skipMemoryCache(true)
+//            .into(productImage)*/
+
+        Picasso.get()
+            .load(product?.PHOTO1)
+            .into(productImage)
+
         val namesdsf = Prefs.getString("Name")
         val mobileno = Prefs.getString("MobileNo")
         shareButton.setOnClickListener {

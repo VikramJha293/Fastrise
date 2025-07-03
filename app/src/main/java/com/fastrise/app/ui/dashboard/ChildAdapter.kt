@@ -11,8 +11,13 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.signature.ObjectKey
 import com.fastrise.app.R
 import com.fastrise.app.utill.AppConstant
+import com.squareup.picasso.Picasso
+
 
 class ChildAdapter(
     private var products: List<DashboardItem>,
@@ -40,7 +45,27 @@ class ChildAdapter(
         holder.tvSubtitle.text = "Category:${product.CATEGORY}"
         holder.tvEpisodeCount.text = "Price: \u20B9${product.Price_Per}"
         holder.modelno.text = "Model No:${product.MODEL_NO}"
-        showImageFromBase64(product.PHOTO1, holder.ivThumbnail)
+//        showImageFromBase64(product.PHOTO1, holder.ivThumbnail)
+//        /*val imageUrl = product.PHOTO1
+//        val imageView = holder.ivThumbnail
+//
+//        if (imageUrl != imageView.tag) {
+//            Glide.with(dashboardActiviyy)
+//                .load(product.PHOTO1)
+//                .diskCacheStrategy(DiskCacheStrategy.NONE)
+//                .signature(ObjectKey(System.currentTimeMillis().toString()))
+//                .skipMemoryCache(true)
+//                .into(holder.ivThumbnail)
+//            imageView.tag = imageUrl
+//        }
+//*/
+
+
+        Picasso.get()
+            .load(product.PHOTO1)
+            .into(holder.ivThumbnail)
+
+
 
         holder.btnEpisodeInfo.setOnClickListener {
             // Handle button click
@@ -68,6 +93,7 @@ class ChildAdapter(
             // Handle decoding errors (optional)
         }
     }
+
     fun updateData(newProducts: List<DashboardItem>) {
         products = newProducts
         notifyDataSetChanged()
