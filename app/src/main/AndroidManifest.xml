@@ -33,6 +33,10 @@
         <activity android:name="com.fastrise.app.ui.dashboard.SaleListRecordActivity" />
         <activity android:name="com.fastrise.app.ui.dashboard.NewDashboardPage" />
         <activity android:name="com.fastrise.app.ui.dashboard.TermsConditionsActivity" />
+        <activity android:name="com.fastrise.app.ui.ContactUsActivity" />
+        <activity android:name="com.fastrise.app.ui.RewardsActivity" />
+        <activity android:name="com.fastrise.app.ui.AboutUsActivity" />
+        <activity android:name="com.fastrise.app.ui.WarrentyPolicyActivity" />
     </application>
 
 </manifest>

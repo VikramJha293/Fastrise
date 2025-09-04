@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Warranty Policy"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/main_color"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- Warranty Coverage -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Warranty Coverage"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Listed products (Rolling Shutter Motors, Remote Sets, Photo Sensors, and other electronic accessories) are warranted against any manufacturing defects for a period of 12 months from the date of purchase.\n\nAny defective part will be repaired or replaced free of charge, at our discretion, within this period."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Warranty Exclusions -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Warranty Exclusions"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This warranty does not cover:\n\n• Damages caused by accident, mishandling, improper installation, or negligence by the customer/fabricator.\n\n• Burnout of electrical windings &amp; capacitors (due to variable power supply conditions).\n\n• Consumable items (e.g., remote batteries, fuses, etc.).\n\n• Damage due to incorrect voltage, fluctuating power supply, water exposure, fire, lightning, or chemical environment.\n\n• Any product opened, repaired, or altered by unauthorized persons other than our authorized service personnel."
+            android:textSize="16sp"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Proof of Warranty -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Proof of Warranty"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Warranty claims will be honored only against a valid invoice/bill and verification of the product’s unique serial number registered in our mobile application at the time of sale.\n\nProducts not registered in the app or without valid proof of purchase will not be eligible for warranty claims."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Warranty Claim Procedure -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Warranty Claim Procedure"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Step 1: The fabricator (shutter installer) must report the issue to the authorized dealer from whom the product was purchased.\n\nStep 2: The dealer will raise the warranty claim in the mobile application using the registered serial number.\n\nStep 3: The company will verify the claim and provide repair or replacement.\n\nStep 4: The dealer will return the serviced/replacement product to the fabricator.\n\n👉 Exception: If the dealer fails to raise a claim, the registered fabricator may directly contact the company with valid invoice and registered serial number."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Limitation of Liability -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. Limitation of Liability"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="The company’s liability is strictly limited to the repair or replacement of defective parts.\n\nThe company is not responsible for indirect losses, labour charges, site visit charges, or consequential damages arising from product failure."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="32dp" />
+
+    </LinearLayout>
+</ScrollView>

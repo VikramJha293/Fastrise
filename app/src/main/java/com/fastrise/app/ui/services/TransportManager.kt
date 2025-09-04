@@ -11,6 +11,7 @@ import com.fastrise.app.ui.dashboard.SaleListResponseModel
 import com.fastrise.app.ui.dashboard.SaleRecordBySearilnoResponse
 import com.fastrise.app.ui.dashboard.SaleRequestModel
 import com.fastrise.app.ui.dashboard.UpdateProfileRequestBody
+import com.fastrise.app.ui.fragment.BannerItem
 import com.fastrise.app.ui.fragment.CustomerSaleResponseModel
 import com.fastrise.app.ui.fragment.SaleResponseModelItem
 import com.fastrise.app.ui.fragment.TransactionResponseModel
@@ -326,7 +327,33 @@ class TransportManager {
             onFailure(ApiServices.CATEGORY_WISE_PRODUCT, AppConstant.NO_INTERNET)
         }
     }
+    fun getBannerData(context: Context?) {
+        if (NetworkUtils.isNetworkAvailable(context!!)) {
+            getAPIService()?.getAllBanner()?.enqueue(object :
+                Callback<ResponseModel<ArrayList<BannerItem>>> {
+                override fun onResponse(
+                    call: Call<ResponseModel<ArrayList<BannerItem>>>,
+                    response: Response<ResponseModel<ArrayList<BannerItem>>>
+                ) {
+                    if (response.isSuccessful) {
+                        filterData(ApiServices.GET_BANNER_DATA, response.body()!!)
+                    } else {
+                        onFailure(ApiServices.GET_BANNER_DATA, response.message())
+                    }
+                }
 
+                override fun onFailure(
+                    call: Call<ResponseModel<ArrayList<BannerItem>>>,
+                    t: Throwable
+                ) {
+                    onFailure(ApiServices.GET_BANNER_DATA, t.localizedMessage)
+                }
+
+            })
+        } else {
+            onFailure(ApiServices.GET_BANNER_DATA, AppConstant.NO_INTERNET)
+        }
+    }
     fun getSaleRecordByCustomer(context: Context?, username: String) {
         if (NetworkUtils.isNetworkAvailable(context!!)) {
             getAPIService()?.getSaleRecordByCustomer(username, "Purchase")

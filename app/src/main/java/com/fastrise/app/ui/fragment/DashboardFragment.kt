@@ -2,6 +2,8 @@ package com.fastrise.app.ui.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +13,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fastrise.app.R
 import com.fastrise.app.databinding.LayoutDashboardBinding
-import com.fastrise.app.ui.dashboard.CategoryModel
-import com.fastrise.app.ui.dashboard.DashboardItem
 import com.fastrise.app.ui.dashboard.DashboardNewResponseModelItem
 import com.fastrise.app.ui.dashboard.EpisodeAdapter
 import com.fastrise.app.ui.login.LoginResponseModelItem
@@ -27,8 +27,7 @@ class DashboardFragment : Fragment(), EventListner {
     private lateinit var binding: LayoutDashboardBinding
     private lateinit var context: Context
     private lateinit var episodeAdapter: EpisodeAdapter
-    private val categories = mutableListOf<CategoryModel>()
-    private val productsMap = mutableMapOf<String, List<DashboardItem>>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,12 +48,14 @@ class DashboardFragment : Fragment(), EventListner {
 
         Prefs.putString("name", dene?.Name)
         Prefs.putString("mobileno", dene?.Mobile_No)
+        TransportManager.getInstance(conlistener = this)?.getBannerData(context)
 
         DialogUtil.displayProgress(activity, "Please Wait, loading Product List..")
         TransportManager.getInstance(this)?.getCategoryWithProduct(context, "1")
 
     }
-
+    private var sliderHandler = Handler(Looper.getMainLooper())
+    private var sliderRunnable: Runnable? = null
     override fun onSuccessResponse(reqType: Int, data: ResponseModel<*>) {
         when (reqType) {
             ApiServices.CATEGORY_WISE_PRODUCT -> {
@@ -62,6 +63,21 @@ class DashboardFragment : Fragment(), EventListner {
                 val dataList = data.data as ArrayList<DashboardNewResponseModelItem>
                 episodeAdapter = EpisodeAdapter(dataList, requireContext())
                 binding.recyclerView.adapter = episodeAdapter
+
+            }
+
+            ApiServices.GET_BANNER_DATA -> {
+                val banners = data.data as ArrayList<BannerItem>
+                val adapter = BannerAdapter(banners)
+                binding.bannerViewPager.adapter = adapter
+                binding.dotsIndicator.attachTo(binding.bannerViewPager)
+                // Auto Slide
+                sliderRunnable = Runnable {
+                    val nextItem = (binding.bannerViewPager.currentItem + 1) % banners.size
+                    binding.bannerViewPager.setCurrentItem(nextItem, true)
+                    sliderHandler.postDelayed(sliderRunnable!!, 2000) // 3 seconds
+                }
+                sliderHandler.postDelayed(sliderRunnable!!, 3000)
             }
         }
     }

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvContactUsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="Contact Us"
+            android:textColor="@color/main_color"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+        <!-- Heading -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingBottom="12dp"
+            android:text="We’re here to support you with all your automation needs."
+            android:textColor="@color/main_color"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:text="For product inquiries, warranty support, or dealer partnerships, please reach out to us:"
+            android:textSize="16sp" />
+
+        <!-- Phone -->
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            android:text="📞 Phone: +91 8503043323"
+            android:textColor="@color/main_color"
+            android:textSize="16sp" />
+
+        <!-- WhatsApp -->
+        <TextView
+            android:id="@+id/tvWhatsApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            android:text="💬 WhatsApp: +91 8503043323"
+            android:textColor="@color/main_color"
+            android:textSize="16sp" />
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="10dp"
+            android:text="📧 Email: fastrisecontact@gmail.com"
+            android:textColor="@color/main_color"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</ScrollView>

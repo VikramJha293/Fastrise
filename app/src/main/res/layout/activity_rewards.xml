@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rewards Program – Terms&amp;Conditions"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/main_color"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- Introduction -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Introduction"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="The FASTrise Rewards Program is designed to add extra value for our dealers, fabricators, and suppliers. By purchasing FASTrise products, you earn reward points that can be redeemed exclusively for FASTrise products through our authorized suppliers.\n\n⚠ Important: Reward Points have no cash value. They cannot be exchanged for money, adjusted against payments, or transferred. Points can only be redeemed for eligible products listed in this program."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Rewards Points Issuance -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. Rewards Points Issuance"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• 1 Point – per Rolling Shutter Motor purchased\n\n• 0.2 Points – per Motor Bracket purchased\n\n• 0.1 Points – per Remote Set purchased\n\n• 0.1 Points – per Photocell purchased"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Redemption – Rolling Shutter Motors -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. Redemption – Rolling Shutter Motors"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AC-400KG-1P → 30 Points\n\nAC-600KG-1P → 32 Points\n\nAC-800KG-1P → 34 Points\n\nAC-1000KG-1P → 36 Points\n\nAC-1300KG-3P → 45 Points\n\nAC-1500KG-3P → 50 Points\n\nAC-2000KG-3P → 64 Points"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Redemption – Motor Brackets -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3. Redemption – Motor Brackets"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AC-400KG-1P → 28 Points\n\nAC-600KG-1P → 30 Points\n\nAC-800KG-1P → 32 Points\n\nAC-1000KG-1P → 34 Points\n\nAC-1300KG-3P → 43 Points\n\nAC-1500KG-3P → 48 Points\n\nAC-2000KG-3P → 62 Points"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Redemption – Accessories -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="4. Redemption – Accessories"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Remote Set → 10 Points\n\n• Photocell Set → 24 Points"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- General Conditions -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5. General Conditions"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Reward Points are non-transferable, non-cashable, and valid only for product redemption.\n\n• Points cannot be used to claim discounts or adjusted against any pending payments.\n\n• Redemption can only be done through authorized suppliers with valid point records.\n\n• The company reserves the right to revise, suspend, or terminate the Rewards Program at any time without prior notice."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="32dp" />
+
+    </LinearLayout>
+</ScrollView>

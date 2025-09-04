@@ -22,6 +22,10 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.fastrise.app.R
+import com.fastrise.app.ui.AboutUsActivity
+import com.fastrise.app.ui.ContactUsActivity
+import com.fastrise.app.ui.RewardsActivity
+import com.fastrise.app.ui.WarrentyPolicyActivity
 import com.fastrise.app.ui.dashboard.UpdateProfileRequestBody
 import com.fastrise.app.ui.login.LoginActivity
 import com.fastrise.app.ui.login.LoginResponseModelItem
@@ -61,6 +65,10 @@ class EditProfileFragment : Fragment(), EventListner {
         val etMobile: EditText = view.findViewById(R.id.et_mobile)
         val tvLogout: TextView = view.findViewById(R.id.tvLogout)
         val btnSave: Button = view.findViewById(R.id.btn_save)
+        val layoutContactUs: LinearLayout = view.findViewById(R.id.layoutContactUs)
+        val layoutAboutUs: LinearLayout = view.findViewById(R.id.layoutAboutUs)
+        val layoutRewardProgram: LinearLayout = view.findViewById(R.id.layoutRewardProgram)
+        val layoutWarentyPolicy: LinearLayout = view.findViewById(R.id.layoutWarentyPolicy)
 
         imgPanUpload = view.findViewById(R.id.imgPanUpload)
 
@@ -74,7 +82,14 @@ class EditProfileFragment : Fragment(), EventListner {
 //            imgPanUpload.setImageBitmap(bitmap) // imgPanUpload is your ImageView
 //            imgPanUpload.setBackgroundResource(R.drawable.circle_badge)
             val drawable = ContextCompat.getDrawable(requireActivity(), R.drawable.circle_badge)
-            imgPanUpload.setImageDrawable(LayerDrawable(arrayOf(drawable, BitmapDrawable(resources, bitmap))))
+            imgPanUpload.setImageDrawable(
+                LayerDrawable(
+                    arrayOf(
+                        drawable,
+                        BitmapDrawable(resources, bitmap)
+                    )
+                )
+            )
         } else {
             Log.e("Base64", "Failed to decode Base64 string")
         }
@@ -117,6 +132,22 @@ class EditProfileFragment : Fragment(), EventListner {
                 TransportManager.getInstance(this)
                     ?.updateProfileApi(context, updateProfileRequestBody)
             }
+        }
+        layoutContactUs.setOnClickListener {
+            val intrr = Intent(requireActivity(), ContactUsActivity::class.java)
+            startActivity(intrr)
+        }
+        layoutAboutUs.setOnClickListener {
+            val intrr = Intent(requireActivity(), AboutUsActivity::class.java)
+            startActivity(intrr)
+        }
+        layoutWarentyPolicy.setOnClickListener {
+            val intrr = Intent(requireActivity(), WarrentyPolicyActivity::class.java)
+            startActivity(intrr)
+        }
+        layoutRewardProgram.setOnClickListener {
+            val intrr = Intent(requireActivity(), RewardsActivity::class.java)
+            startActivity(intrr)
         }
     }
 

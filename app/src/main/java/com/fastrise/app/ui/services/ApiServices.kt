@@ -11,6 +11,7 @@ import com.fastrise.app.ui.dashboard.SaleListResponseModel
 import com.fastrise.app.ui.dashboard.SaleRecordBySearilnoResponse
 import com.fastrise.app.ui.dashboard.SaleRequestModel
 import com.fastrise.app.ui.dashboard.UpdateProfileRequestBody
+import com.fastrise.app.ui.fragment.BannerItem
 import com.fastrise.app.ui.fragment.CustomerSaleResponseModel
 import com.fastrise.app.ui.fragment.SaleResponseModelItem
 import com.fastrise.app.ui.fragment.TransactionResponseModel
@@ -96,6 +97,10 @@ interface ApiServices {
         @Query("SerialNo") id: String
     ): Call<ResponseModel<ArrayList<ItemXX>>>
 
+    @GET("GetAllBanner")
+    fun getAllBanner(
+    ): Call<ResponseModel<ArrayList<BannerItem>>>
+
     companion object {
         const val USER_REGISTER = 1
         const val USER_LOGIN = 2
@@ -111,6 +116,7 @@ interface ApiServices {
         const val UPDATE_PROFILe = 12
         const val PASSWORD_CHANGE = 13
         const val GET_DATA_MSERIAL_NO = 14
+        const val GET_BANNER_DATA = 15
 
     }
 }

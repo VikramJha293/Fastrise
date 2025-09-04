@@ -1,5 +1,6 @@
 package com.fastrise.app.ui.dashboard
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -9,16 +10,23 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.fastrise.app.R
 import com.fastrise.app.databinding.LayoutNewDashboardBinding
+import com.fastrise.app.ui.fragment.BannerItem
 import com.fastrise.app.ui.fragment.DashboardFragment
 import com.fastrise.app.ui.fragment.EditProfileFragment
 import com.fastrise.app.ui.fragment.SaleRecordFragment
 import com.fastrise.app.ui.fragment.TransactionFragment
 import com.fastrise.app.ui.login.LoginResponseModelItem
+import com.fastrise.app.ui.services.EventListner
+import com.fastrise.app.ui.services.ResponseModel
+import com.fastrise.app.ui.services.TransportManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pixplicity.easyprefs.library.Prefs
+import com.squareup.picasso.Picasso
+import java.util.ArrayList
 
-class NewDashboardPage : AppCompatActivity() {
+class NewDashboardPage : AppCompatActivity(), EventListner {
     private lateinit var binding: LayoutNewDashboardBinding
+    private var context: Context? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.layout_new_dashboard)
@@ -35,6 +43,7 @@ class NewDashboardPage : AppCompatActivity() {
         if (savedInstanceState == null) {
             loadFragment(DashboardFragment())
         }
+        context = this@NewDashboardPage
         val rewardBadge: TextView = findViewById(R.id.rewardBadge)
         val rewardPoints = dene?.WALLET_BALANCE?.toDoubleOrNull()?.let { Math.round(it).toInt() } ?: 0  // Set your dynamic value
 
@@ -60,6 +69,7 @@ class NewDashboardPage : AppCompatActivity() {
             startActivity(intentf)
 
         }
+
     }
 
     private fun loadFragment(fragment: Fragment, loginData: LoginResponseModelItem? = null) {
@@ -70,5 +80,27 @@ class NewDashboardPage : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
+    }
+
+    override fun onSuccessResponse(
+        reqType: Int,
+        data: ResponseModel<*>
+    ) {
+//        val banners = data.data as ArrayList<BannerItem>
+//        val firstBanner = banners.firstOrNull()
+//        firstBanner?.let { banner ->
+//            Picasso.get()
+//                .load(banner.BANNER)
+//                .placeholder(com.chaos.view.R.drawable.pv_invisible_image)
+//                .into(binding.imgBanner)
+//        }
+
+    }
+
+    override fun onFailureResponse(
+        reqType: Int,
+        data: ResponseModel<*>
+    ) {
+
     }
 }

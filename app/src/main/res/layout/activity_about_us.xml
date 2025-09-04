@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/main_color"
+            android:layout_gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- Welcome -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome to FASTrise – India’s trusted name in Smart Automation Solutions.\nWe are a forward-looking brand dedicated to transforming how automation integrates into everyday life. With a strong commitment to innovation, reliability, and customer-centric service, FASTrise has positioned itself as a rising leader in the automation industry."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Our Journey -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Our Journey"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FASTrise was born from a vision to simplify security and automation while ensuring that businesses, dealers, and end-users receive world-class solutions that are easy to use and long-lasting. From the very beginning, our mission has been to provide products and services that combine strength, durability, and next-generation technology.\n\nThrough continuous effort, dedication, and a deep understanding of market needs, FASTrise has grown into a trusted brand that resonates with both local and national audiences. Our growth is not just in terms of numbers but in the trust we have built with every dealer, distributor, and customer who chooses FASTrise."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Vision -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Our Vision"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="At FASTrise, our vision is clear—to become a global leader in smart automation solutions. We believe automation is not just about machines but about creating a smarter, more efficient, and more secure environment for people. Every innovation we introduce is guided by the belief that automation should make life simpler, safer, and more reliable."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Mission -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Our Mission"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Our mission is to deliver durable, high-performance, and innovative automation solutions that serve the needs of a wide spectrum of users. From fabricators to dealers, from small businesses to large enterprises, FASTrise is committed to delivering solutions that create value at every level.\n\nWe aim to empower our partners with strong product support, streamlined warranty systems, reward programs, and an ecosystem that ensures everyone grows together."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Why FASTrise -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Why FASTrise?"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="• Reliability: Each product undergoes strict quality checks to ensure flawless performance.\n\n• Innovation: Moving towards voice control, IoT, and smart automation systems aligned with future tech.\n\n• Customer-Centricity: Warranty and rewards programs designed for fabricators, dealers, and customers.\n\n• Strong Network: Rapidly growing dealer and distributor base nationwide and globally."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Commitment -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Commitment to Quality"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="For FASTrise, quality is not just a promise; it is a responsibility. Every solution meets high standards of safety, durability, and usability. Our support team works closely with partners to resolve issues, process warranties, and provide training whenever required."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Partners -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Empowering Our Partners"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FASTrise focuses on empowering dealers, distributors, and fabricators with tools beyond products. With app-based warranty systems, transparent processes, and attractive reward programs, we ensure partnerships built on trust and growth."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Innovation -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Innovation for the Future"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Technology is at the heart of FASTrise. From advanced sensors to app integrations and voice-controlled devices, we ensure automation evolves with modern living."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Looking Ahead -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Looking Ahead"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FASTrise aims to be a global name in smart automation. We will expand our dealer/distributor network internationally and strengthen our digital ecosystem to make automation smarter, simpler, and reliable."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp" />
+
+        <!-- Promise -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Our Promise"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="FASTrise stands for reliability, innovation, and service. We promise to continue developing smarter solutions that benefit partners and end-users while setting new benchmarks in automation."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="24dp" />
+
+        <!-- Contact Info -->
+        <TextView
+            android:id="@+id/tvAboutEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📧 Email: fastrisecontact@gmail.com"
+            android:textSize="16sp"
+            android:textColor="@color/main_color"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:id="@+id/tvAboutPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📞 Contact: +91 8503043323"
+            android:textSize="16sp"
+            android:textColor="@color/main_color"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+</ScrollView>
