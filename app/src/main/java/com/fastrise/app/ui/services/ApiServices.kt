@@ -2,6 +2,7 @@ package com.fastrise.app.ui.services
 
 
 import com.fastrise.app.ui.dashboard.CategoryModel
+import com.fastrise.app.ui.dashboard.CategorySaleReport
 import com.fastrise.app.ui.dashboard.DashboardCategoryModel
 import com.fastrise.app.ui.dashboard.DashboardNewResponseModelItem
 import com.fastrise.app.ui.dashboard.DashboardRsponseModel
@@ -101,6 +102,12 @@ interface ApiServices {
     fun getAllBanner(
     ): Call<ResponseModel<ArrayList<BannerItem>>>
 
+    @GET("CategoryWiseTarget")
+    fun getSaleCategoryWiseData(
+        @Query("supplier") Mobile: String,
+        @Query("action") action: String
+    ): Call<ResponseModel<CategorySaleReport>>
+
     companion object {
         const val USER_REGISTER = 1
         const val USER_LOGIN = 2
@@ -117,6 +124,7 @@ interface ApiServices {
         const val PASSWORD_CHANGE = 13
         const val GET_DATA_MSERIAL_NO = 14
         const val GET_BANNER_DATA = 15
+        const val getSaleCategoryWiseData = 16
 
     }
 }

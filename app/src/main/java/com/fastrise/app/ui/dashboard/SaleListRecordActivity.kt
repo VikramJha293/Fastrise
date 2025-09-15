@@ -38,6 +38,11 @@ class SaleListRecordActivity : AppCompatActivity(), EventListner {
             intt.putExtra("loginData",dene)
             startActivity(intt)
         }
+        binding.buttonCategoryWiseReport.setOnClickListener {
+            val intt = Intent(this, SaleReportActivity::class.java)
+            intt.putExtra("loginData",dene)
+            startActivity(intt)
+        }
 
     }
 

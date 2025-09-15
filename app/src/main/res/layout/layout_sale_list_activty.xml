@@ -7,13 +7,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
+
         tools:ignore="HardcodedText">
 
         <!-- Top Header -->
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="128dp"
+            android:layout_height="150dp"
             android:background="@drawable/custom_rectangle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="30dp"
             android:background="?attr/selectableItemBackground"
             android:padding="8dp"
             android:src="@drawable/arrow_cal"
@@ -39,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="30dp"
             android:gravity="center_horizontal"
             android:letterSpacing="0.025"
             android:text="Sale Record"
@@ -91,6 +92,22 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:tint="@color/white" />
+
+        <Button
+            android:id="@+id/buttonCategoryWiseReport"
+            android:layout_width="0dp"
+            android:text="Sale Category Wise Report"
+
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/main_color"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fab_add_sale"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

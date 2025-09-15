@@ -37,6 +37,7 @@
         <activity android:name="com.fastrise.app.ui.RewardsActivity" />
         <activity android:name="com.fastrise.app.ui.AboutUsActivity" />
         <activity android:name="com.fastrise.app.ui.WarrentyPolicyActivity" />
+        <activity android:name="com.fastrise.app.ui.dashboard.SaleReportActivity" />
     </application>
 
 </manifest>

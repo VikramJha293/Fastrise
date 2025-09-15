@@ -1,6 +1,7 @@
 package com.fastrise.app.ui.services
 
 import android.content.Context
+import com.fastrise.app.ui.dashboard.CategorySaleReport
 import com.fastrise.app.ui.dashboard.DashboardCategoryModel
 import com.fastrise.app.ui.dashboard.DashboardNewResponseModelItem
 import com.fastrise.app.ui.dashboard.DashboardRsponseModel
@@ -482,6 +483,34 @@ class TransportManager {
             })
         } else {
             onFailure(ApiServices.GET_DATA_MOBILE_NO, AppConstant.NO_INTERNET)
+        }
+    }
+
+    fun getSaleCategoryWiseData(context: Context?, mobileNo: String) {
+        if (NetworkUtils.isNetworkAvailable(context!!)) {
+            getAPIService()?.getSaleCategoryWiseData("9950028132","SMobile")?.enqueue(object :
+                Callback<ResponseModel<CategorySaleReport>> {
+                override fun onResponse(
+                    call: Call<ResponseModel<CategorySaleReport>>,
+                    response: Response<ResponseModel<CategorySaleReport>>
+                ) {
+                    if (response.isSuccessful) {
+                        filterData(ApiServices.getSaleCategoryWiseData, response.body()!!)
+                    } else {
+                        onFailure(ApiServices.getSaleCategoryWiseData, response.message())
+                    }
+                }
+
+                override fun onFailure(
+                    call: Call<ResponseModel<CategorySaleReport>>,
+                    t: Throwable
+                ) {
+                    onFailure(ApiServices.getSaleCategoryWiseData, t.localizedMessage)
+                }
+
+            })
+        } else {
+            onFailure(ApiServices.getSaleCategoryWiseData, AppConstant.NO_INTERNET)
         }
     }
 
