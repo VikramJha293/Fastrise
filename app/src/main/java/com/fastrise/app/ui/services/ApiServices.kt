@@ -108,6 +108,13 @@ interface ApiServices {
         @Query("action") action: String
     ): Call<ResponseModel<CategorySaleReport>>
 
+    @POST("UpdateDeclearation")
+    @Headers("Content-Type: application/json")
+    fun updateDeclearationApi(
+        @Query("mobile") mobile: String,
+        @Query("value") value: Int
+    ): Call<ResponseModel<String>>
+
     companion object {
         const val USER_REGISTER = 1
         const val USER_LOGIN = 2
@@ -125,6 +132,7 @@ interface ApiServices {
         const val GET_DATA_MSERIAL_NO = 14
         const val GET_BANNER_DATA = 15
         const val getSaleCategoryWiseData = 16
+        const val UPDATE_DECALATION_API_SERVICE = 17
 
     }
 }

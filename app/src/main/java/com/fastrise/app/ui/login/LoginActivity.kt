@@ -9,10 +9,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
@@ -34,6 +36,9 @@ import com.fastrise.app.utill.DialogUtil
 import com.fastrise.app.utill.toast
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.pixplicity.easyprefs.library.Prefs
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class LoginActivity : AppCompatActivity(), EventListner {
     private var context: Context? = null
@@ -159,17 +164,23 @@ class LoginActivity : AppCompatActivity(), EventListner {
                     Log.d("AUTH_RESPONSE", "User Name: ${dataList.Name}")
                     Log.d("AUTH_RESPONSE", "User Email: ${dataList.Gmail}")
                     Prefs.putString("username", user)
+                    Prefs.putString("password", passwordd)
                     Prefs.putString("userId", dataList.id.toString())
                     Prefs.putString("Name", dataList.Name)
-                    Prefs.putString("MobileNo", dataList.Mobile_No.toString())
+                    Prefs.putString("MobileNo", dataList.Mobile_No)
                     if (dataList.User_Type == "Customer") {
                         val intentfd = Intent(this, NewDashboardPage::class.java)
                         intentfd.putExtra("loginData", dataList)
                         startActivity(intentfd)
                     } else {
-                        val intentfd = Intent(this, SaleListRecordActivity::class.java)
-                        intentfd.putExtra("loginData", dataList)
-                        startActivity(intentfd)
+                        if (dataList.DECLEARATION == 1) {
+                            val intentfd = Intent(this, SaleListRecordActivity::class.java)
+                            intentfd.putExtra("loginData", dataList)
+                            startActivity(intentfd)
+                        } else {
+                            showDealerAgreementPopup(dataList)
+                        }
+
                     }
 
                 } else {
@@ -190,6 +201,19 @@ class LoginActivity : AppCompatActivity(), EventListner {
                 DialogUtil.stopProgressDisplay()
                 bottomSheetDialog?.dismiss()
                 toast(data.message.toString())
+            }
+
+            ApiServices.UPDATE_DECALATION_API_SERVICE -> {
+                val vlue = data.status
+                if (vlue == "1") {
+                    DialogUtil.stopProgressDisplay()
+                    dialog?.dismiss()
+                    toast(data.message.toString())
+                    user = Prefs.getString("username")
+                    passwordd = Prefs.getString("password")
+                    TransportManager.getInstance(this)!!
+                        .userLogin(context, user, passwordd)
+                }
             }
         }
     }
@@ -251,4 +275,85 @@ class LoginActivity : AppCompatActivity(), EventListner {
         DialogUtil.stopProgressDisplay()
         toast(data.message.toString())
     }
+
+    var dialog: AlertDialog? = null
+    private fun showDealerAgreementPopup(dealer: LoginResponseModelItem) {
+        dialog = AlertDialog.Builder(this).create()
+        val view = layoutInflater.inflate(R.layout.dealer_agreement_popup, null)
+
+        val tvContent = view.findViewById<TextView>(R.id.tvAgreementContent)
+        val btnAccept = view.findViewById<Button>(R.id.btnAccept)
+        val btnCancel = view.findViewById<Button>(R.id.btnCancel)
+        val chkAgree = view.findViewById<CheckBox>(R.id.chkAgree)
+        val agreementText = """
+        **Between:**
+
+        GELGE AUTOMATION (Brand: FASTrise)
+        Shahpura (Dist. Bhilwara), Rajasthan – 311001
+        📧 Sales@gelgeautomation.com | 📞 +91 6377809933
+        (Hereinafter referred to as the "Company")
+
+        **And**
+
+        Dealer Name: ${dealer.Name}
+        Company Name: ${dealer.Company_Name}
+        Address: ${dealer.Eaddress}
+        Email: ${dealer.Gmail}
+        Mobile: ${dealer.Mobile_No}
+        PAN: ${dealer.Pan}
+        Bank: ${dealer.Bank_Name}, Branch: ${dealer.Branch}, IFSC: ${dealer.Ifsc}
+
+        (Hereinafter referred to as the "Dealer")
+         ---------------------------
+
+        1. PURPOSE
+        This agreement outlines the terms of sale, distribution, and responsibilities...
+
+        2. DEALER RESPONSIBILITIES
+        • Operate as per assigned targets and fixed rates.
+        • Promote brand and support installers.
+        • Avoid false registration.
+
+        3. COMPANY RESPONSIBILITIES
+        • Ensure timely delivery.
+        • Provide warranty and support.
+
+        ...
+
+        13. DIGITAL ACCEPTANCE
+        By clicking “I Agree”, the Dealer confirms that:
+        - All above information is true.
+        - They accept these terms legally.
+
+        Dealer: ${dealer.Name}
+        Date: ${SimpleDateFormat("dd MMM yyyy, hh:mm a", Locale.getDefault()).format(Date())}
+        Company: FASTrise Automation Pvt. Ltd.
+    """.trimIndent()
+
+        tvContent.text = agreementText
+
+        btnCancel.setOnClickListener {
+            dialog!!.dismiss()
+        }
+
+        btnAccept.setOnClickListener {
+            if (!chkAgree.isChecked) {
+                Toast.makeText(
+                    this,
+                    "Please check the box to accept the terms.",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            // Save acceptance in database or shared pref
+            DialogUtil.displayProgress(this, "Please wait updating..")
+            TransportManager.getInstance(this)!!.updateDeclearationApi(context, dealer.Mobile_No, 1)
+        }
+
+        dialog!!.setView(view)
+        dialog!!.setCancelable(false)
+        dialog!!.show()
+    }
+
 }

@@ -514,6 +514,31 @@ class TransportManager {
         }
     }
 
+    fun updateDeclearationApi(context: Context?, mobileNo:String, value:Int) {
+        if (NetworkUtils.isNetworkAvailable(context!!)) {
+            getAPIService()?.updateDeclearationApi(mobileNo, value)
+                ?.enqueue(object : Callback<ResponseModel<String>> {
+                    override fun onResponse(
+                        call: Call<ResponseModel<String>>,
+                        response: Response<ResponseModel<String>>
+                    ) {
+                        if (response.isSuccessful) {
+                            filterData(ApiServices.UPDATE_DECALATION_API_SERVICE, response.body()!!)
+                        } else {
+                            onFailure(ApiServices.UPDATE_DECALATION_API_SERVICE, response.message())
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ResponseModel<String>>, t: Throwable) {
+                        onFailure(ApiServices.UPDATE_DECALATION_API_SERVICE, t.localizedMessage.toString())
+                    }
+
+                })
+        } else {
+            onFailure(ApiServices.UPDATE_DECALATION_API_SERVICE, AppConstant.NO_INTERNET)
+        }
+    }
+
     private fun filterData(type: Int, result: ResponseModel<*>) {
         if (result.code == "200") {
             listener!!.onSuccessResponse(type, result)
