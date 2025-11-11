@@ -488,7 +488,7 @@ class TransportManager {
 
     fun getSaleCategoryWiseData(context: Context?, mobileNo: String) {
         if (NetworkUtils.isNetworkAvailable(context!!)) {
-            getAPIService()?.getSaleCategoryWiseData("9950028132","SMobile")?.enqueue(object :
+            getAPIService()?.getSaleCategoryWiseData(/*"9950028132"*/mobileNo,"SMobile")?.enqueue(object :
                 Callback<ResponseModel<CategorySaleReport>> {
                 override fun onResponse(
                     call: Call<ResponseModel<CategorySaleReport>>,
@@ -538,6 +538,8 @@ class TransportManager {
             onFailure(ApiServices.UPDATE_DECALATION_API_SERVICE, AppConstant.NO_INTERNET)
         }
     }
+
+
 
     private fun filterData(type: Int, result: ResponseModel<*>) {
         if (result.code == "200") {

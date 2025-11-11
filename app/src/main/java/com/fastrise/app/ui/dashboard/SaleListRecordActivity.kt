@@ -3,6 +3,8 @@ package com.fastrise.app.ui.dashboard
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,12 +23,13 @@ class SaleListRecordActivity : AppCompatActivity(), EventListner {
     private lateinit var binding: LayoutSaleListActivtyBinding
     lateinit var context: Context
     private lateinit var invoiceAdapter: SaleListAdapter
-
+    var mobileno =""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val i = intent
         val dene: LoginResponseModelItem? =
             i.getSerializableExtra("loginData") as LoginResponseModelItem?
+        mobileno = dene!!.Mobile_No
         binding = DataBindingUtil.setContentView(this, R.layout.layout_sale_list_activty)
         context = this@SaleListRecordActivity
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
@@ -43,6 +46,8 @@ class SaleListRecordActivity : AppCompatActivity(), EventListner {
             intt.putExtra("loginData",dene)
             startActivity(intt)
         }
+        TransportManager.getInstance(this)?.getSaleCategoryWiseData(context,mobileno)
+
 
     }
 
@@ -54,6 +59,31 @@ class SaleListRecordActivity : AppCompatActivity(), EventListner {
                 val bindDat = dataList.item
                 invoiceAdapter = SaleListAdapter(bindDat, context)
                 binding.recyclerView.adapter = invoiceAdapter
+//                TransportManager.getInstance(this)?.getSaleCategoryWiseData(context,mobileno.toString())
+            }
+            ApiServices.getSaleCategoryWiseData -> {
+                val dataGet = data.data as? CategorySaleReport
+
+                // Safely find the item where NAME == "Shutter motors"
+                val shutterMotorItem = dataGet?.item?.find { it.CATEGORY.equals(" Shutter motors", ignoreCase = true) == true }
+
+                if (shutterMotorItem != null) {
+                    val target = shutterMotorItem.Target ?: 0
+                    val achieved = shutterMotorItem.QTY ?: 0
+
+                    binding.progreslayout.visibility = View.VISIBLE
+//                    binding.marqueeText.text = "\uD83C\uDFC6 Keep rolling, keep selling! Sell $target and you have achieved $achieved so far."
+//                    binding.marqueeText.text = "\uD83C\uDFC6 Keep rolling, keep selling! Sell $target Shutter Motors and win an exciting offer! $achieved down, 497 to go \uD83D\uDD25"
+//                    binding.marqueeText.isSelected = true // ✅ enables infinite marquee
+                    binding.progressBar.max = target
+                    binding.progressBar.progress = achieved
+                    binding.tvCurrent.text = "$achieved achieved"
+                    binding.tvTarget.text = "$target Target"
+                } else {
+                    // Optionally clear or hide text when "Shutter motors" is not found
+//                    binding.marqueeText.text = ""
+                    binding.progreslayout.visibility = View.GONE
+                }
             }
         }
     }
@@ -61,6 +91,7 @@ class SaleListRecordActivity : AppCompatActivity(), EventListner {
     override fun onFailureResponse(reqType: Int, data: ResponseModel<*>) {
         DialogUtil.stopProgressDisplay()
         toast(data.message.toString())
+
     }
 
     override fun onResume() {
@@ -68,5 +99,6 @@ class SaleListRecordActivity : AppCompatActivity(), EventListner {
         DialogUtil.displayProgress(this, "Please wait sale record is loading..")
         TransportManager.getInstance(this)
             ?.getSaleListByMobileNo(context, Prefs.getString("username"))
+
     }
 }
